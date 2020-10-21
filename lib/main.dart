@@ -25,6 +25,7 @@ class TutorialHome extends StatelessWidget{
             tooltip: 'Search',
             onPressed: null,
           ),
+          CustomButton()
         ],
       ),
       // body is the majority of the screen.
@@ -36,6 +37,29 @@ class TutorialHome extends StatelessWidget{
         tooltip: 'Add', // used by assistive technologies
         child: Icon(Icons.add),
         onPressed: null,
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print('CustomButton was tapped!');
+      },
+      child: Container(
+        height: 36.0,
+        padding: const EdgeInsets.all(8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
+          color: Colors.lightBlue,
+        ),
+        child: Center(
+          child: Text('Engage'),
+        ),
       ),
     );
   }
