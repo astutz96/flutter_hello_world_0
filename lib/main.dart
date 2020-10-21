@@ -11,6 +11,7 @@ class TutorialHome extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         backgroundColor: Colors.orange,
         leading: IconButton(
@@ -30,7 +31,15 @@ class TutorialHome extends StatelessWidget{
       ),
       // body is the majority of the screen.
       body: Center(
-        child: Text('Hello, world!'),
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Hello, world!'),
+              Text('More Text'),
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange,
