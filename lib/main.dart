@@ -40,6 +40,7 @@ class TutorialHome extends StatelessWidget{
               Text('Hello, world!'),
               Text('More Text'),
               Counter(),
+              BetterCounter(),
             ],
           ),
         ),
@@ -77,11 +78,13 @@ class CustomButton extends StatelessWidget{
   }
 }
 
+//Widgets are temporary objects, used to construct a presentation of the application in its current state
 class Counter extends StatefulWidget {
   @override
   _CounterState createState() => _CounterState();
 }
 
+//State objects persis between calls to Build()
 class _CounterState extends State<Counter> {
   int _counter = 0;
 
@@ -105,6 +108,54 @@ class _CounterState extends State<Counter> {
   }
 }
 
+class BetterCounterDisplay extends StatelessWidget{
+
+  final int count;
+
+  BetterCounterDisplay({this.count});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('count: $count');
+  }
+}
+
+class BetterCounterIncrementor  extends StatelessWidget {
+
+  BetterCounterIncrementor ({this.onPressed});
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text('Increment'),
+    );
+  }
+}
+
+class BetterCounter extends StatefulWidget{
+  @override
+  _BetterCounterState createState() => _BetterCounterState();
+}
+
+class _BetterCounterState extends State<BetterCounter>{
+  int _counter = 0;
+
+  void _increment(){
+    setState(() {
+      ++_counter;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: <Widget>[
+      BetterCounterIncrementor(onPressed: _increment),
+      BetterCounterDisplay(count: _counter),
+    ]);
+  }
+}
 
 
 
