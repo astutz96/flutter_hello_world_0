@@ -1,5 +1,10 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
+
+// ABOUT
+// This is an alternative implementation of the same functionality provided by Counter
+// The difference is we have separated the concerns:
+// 1. Displaying the Counter - Handled by BetterCounterDisplay
+// 2. Changing/Updating the counter - Handled by BetterCounterIncrementor
 
 class BetterCounterDisplay extends StatelessWidget{
 
